@@ -1,16 +1,54 @@
-/* LAWYER PAGE style (own file). Solid background colour for this page (light / dark): */
-:root[data-theme="light"]{--page-bg:#DBCAB2}
-:root[data-theme="dark"]{--page-bg:#33434a}
-/* The background picture is the <img> inside the #bg div in the HTML page. Opacity of the picture: 0 = invisible ... 1 = full strength. */
-#bg{--bg-img-opacity:.3}
-
-/* different heading colour per page in light mode */
-:root[data-theme="light"] #lawyer{--head:var(--charcoal)}
-.two .photo{border-radius:16px;aspect-ratio:3/4}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 26px}
-.chip{background:var(--blue);color:#fff;padding:8px 18px;border-radius:30px;font-size:.92rem}
-.hl{list-style:none;padding:0;margin:14px 0 26px}
-.hl li{padding:10px 0 10px 34px;position:relative;border-bottom:1px solid var(--card-b)}
-.hl li::before{content:"⚖";position:absolute;left:0;color:var(--accent)}
-#lawyer h3{color:var(--accent);margin-top:10px}
-@media(max-width:800px){#lawyer .two{grid-template-columns:1fr}}
+:root[data-theme="light"] {
+  --page-bg: #DBCAB2;
+}
+:root[data-theme="dark"] {
+  --page-bg: #33434a;
+}
+#bg {
+  --bg-img-opacity: .3;
+}
+:root[data-theme="light"] #lawyer {
+  --head: var(--charcoal);
+}
+.two .photo {
+  border-radius: 16px;
+  aspect-ratio: 3/4;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 26px;
+}
+.chip {
+  background: var(--blue);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: .92rem;
+}
+.hl {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 26px;
+}
+.hl li {
+  padding: 10px 0 10px 34px;
+  position: relative;
+  border-bottom: 1px solid var(--card-b);
+}
+.hl li::before {
+  content: "⚖";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+#lawyer h3 {
+  color: var(--accent);
+  margin-top: 10px;
+}
+@media (max-width:800px) {
+  #lawyer .two {
+    grid-template-columns: 1fr;
+  }
+}
