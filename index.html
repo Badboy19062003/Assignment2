@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Abdallah Law Firm</title>
+  <meta name="description" content="Legal services with high professionalism and outstanding results.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%96%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  
+  <script>
+    (() => {
+      try {
+        const doc = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        doc.dataset.theme = savedTheme || (systemDark ? 'dark' : 'light');
+        doc.classList.add('js');
+
+        const wipe = sessionStorage.getItem('wipe');
+        if (wipe) {
+          doc.classList.add('arriving');
+          doc.style.setProperty('--wipe', wipe);
+          sessionStorage.removeItem('wipe');
+        }
+      } catch (e) {
+        console.error('Theme initialization error:', e);
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <div id="bg" aria-hidden="true">
+    <img src="images/home-bg.jpg" alt="" onerror="this.remove()">
+  </div>
+  
+  <div id="progress"></div>
+
+  <header class="fnav">
+    <a class="logo" href="index.html" data-bg-light="#E8E3D9" data-bg-dark="#2c383e">
+      ⚖ <b>abdallah</b>
+    </a>
+    
+    <nav class="links" aria-label="Main navigation">
+      <span class="ind"></span>
+      <a href="index.html" data-bg-light="#E8E3D9" data-bg-dark="#2c383e" aria-current="page">
+        <span class="n">01</span><span class="t">Home</span>
+      </a>
+      <a href="lawyer.html" data-bg-light="#DBCAB2" data-bg-dark="#464646">
+        <span class="n">02</span><span class="t">Meet the Lawyer</span>
+      </a>
+      <a href="expertise.html" data-bg-light="#C9D2D4" data-bg-dark="#33434a">
+        <span class="n">03</span><span class="t">Expertise</span>
+      </a>
+      <a href="articles.html" data-bg-light="#E8E3D9" data-bg-dark="#3f545c">
+        <span class="n">04</span><span class="t">Articles</span>
+      </a>
+      <a href="contact.html" data-bg-light="#DBCAB2" data-bg-dark="#2e3234">
+        <span class="n">05</span><span class="t">Contact Us</span>
+      </a>
+    </nav>
+
+    <button id="theme" aria-label="Switch to dark mode" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+        <mask id="moonmask">
+          <rect width="24" height="24" fill="#fff" />
+          <circle class="cut" cx="24" cy="0" r="8" fill="#000" />
+        </mask>
+        <circle class="core" cx="12" cy="12" r="5" fill="currentColor" mask="url(#moonmask)" />
+        <g class="rays" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+        </g>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+    <section class="page" id="home">
+      <div class="wrap">
+        <div class="hero">
+          <div class="reveal left">
+            <span class="eyebrow">⚖ abdallah · barrister</span>
+            <h1>abdallah <span>law firm</span></h1>
+            <p class="lead">Legal services with high professionalism and outstanding results.</p>
+            <a class="btn" href="contact.html" data-bg-light="#DBCAB2" data-bg-dark="#2e3234">Schedule a legal consultation</a>
+            <a class="btn alt" href="expertise.html" data-bg-light="#C9D2D4" data-bg-dark="#33434a">Our expertise</a>
+          </div>
+          <div class="photo reveal fx-photo" data-speed="0.08">
+            <img src="images/Mr abdullah.jpg" alt="Portrait of Abdallah, barrister" onerror="this.remove()">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Litigation</span><span>✦</span>
+        <span>Arbitration</span><span>✦</span>
+        <span>Mediation</span><span>✦</span>
+        <span>Family Law</span><span>✦</span>
+        <span>Commercial Law</span><span>✦</span>
+      </div>
+    </div>
+
+    <section class="page">
+      <div class="wrap">
+        <div class="stats">
+          <div class="stat reveal"><b data-count="200">0</b>Clients represented</div>
+          <div class="stat reveal" style="--d:.15s"><b data-count="200">0</b>Litigation cases</div>
+          <div class="stat reveal" style="--d:.3s"><b data-count="100">0</b>International arbitrations</div>
+        </div>
+
+        <h2 class="sub reveal">Services overview</h2>
+        <div class="grid" id="overview"></div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="wrap">
+        <h2 class="sub reveal">Client reviews</h2>
+        <div class="slider reveal" id="slider" aria-live="polite"></div>
+        <div class="dots" id="dots"></div>
+
+        <h2 class="sub reveal">Find us in Ebène</h2>
+        <div class="mapbox reveal zoom" data-map aria-label="Location map"></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Litigation</span><span>✦</span>
+        <span>Arbitration</span><span>✦</span>
+        <span>Mediation</span><span>✦</span>
+        <span>Family Law</span><span>✦</span>
+        <span>Commercial Law</span><span>✦</span>
+      </div>
+    </div>
+
+    <section class="next reveal">
+      <small>Next page</small>
+      <a href="lawyer.html" data-bg-light="#DBCAB2" data-bg-dark="#464646">
+        Meet the Lawyer <span>→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-brand">
+      <h3>Abdallah Law Firm</h3>
+      <p>Legal services with high professionalism and outstanding results.</p>
+    </div>
+    
+    <address class="foot-info">
+      <p><b>abdallah law firm</b> · <a href="https://www.abdallahlawfirm.com" target="_blank" rel="noopener">www.abdallahlawfirm.com</a></p>
+      <p>📍 Cyber Tower 1, Ebene</p>
+      <p>📞 <a href="tel:+23057995620">+230-57995620</a></p>
+      <p class="disclaimer">Information on this website is general in nature and does not constitute legal advice.</p>
+      <p>© 2026 Abdallah Law Firm. All rights reserved.</p>
+    </address>
+  </footer>
+
+  <button id="top" aria-label="Back to top">↑</button>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/home.js" defer></script>
+  <script src="js/common.js" defer></script>
+</body>
+</html>

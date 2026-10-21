@@ -1,0 +1,89 @@
+/* SHARED STYLE: palette, light/dark themes, floating nav, animated background, buttons, cards, animations.
+   Loaded by every page BEFORE that page's own css file. */
+:root{--blue-light:#A6B2B5;--blue:#536972;--cream:#E8E3D9;--sand:#DBCAB2;--terra:#B87458;--charcoal:#464646;--terra-dark:#8F5239;--ink:#2e3234;
+ --serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+:root[data-theme="light"]{--fg:#2e3234;--head:#3f545c;--accent:#7A4129;--card:rgba(255,255,255,.55);--card-b:rgba(70,70,70,.18);--shadow:rgba(70,70,70,.25);--err:#9a2f1f;--nav-bg:rgba(255,255,255,.55)}
+:root[data-theme="dark"]{--fg:#E8E3D9;--head:#DBCAB2;--accent:#e0a182;--card:rgba(255,255,255,.07);--card-b:rgba(219,202,178,.3);--shadow:rgba(0,0,0,.45);--err:#ffb4a2;--nav-bg:rgba(28,34,38,.6)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--fg);background:var(--page-bg,var(--cream));line-height:1.65}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;color:var(--head)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+
+/* ===== BACKGROUND: solid colour (set per page in that page's own css as --page-bg) ===== */
+/* TO CHANGE THE PHOTO: edit the <img src="..."> inside <div id="bg"> in the page's HTML file (the photo stays still) */
+#bg{position:fixed;inset:0;z-index:-1;background:var(--page-bg);transition:background-color .8s ease;--bg-img:none;--bg-img-opacity:.25}
+#bg::before{content:"";position:absolute;inset:0;background:var(--bg-img) center/cover no-repeat;opacity:var(--bg-img-opacity)}
+#bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:var(--bg-img-opacity)}
+
+.notrans,.notrans *{transition:none!important}
+
+/* ===== PAGES ===== */
+.page{position:relative;min-height:100vh;padding:clamp(110px,12vw,150px) clamp(20px,6vw,90px) clamp(60px,8vw,100px);overflow-x:clip}
+.page>.wrap{max-width:1100px;margin:auto}
+.eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;margin-bottom:14px;color:var(--accent)}
+h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:18px}
+.sub{margin:50px 0 20px;font-size:1.7rem}
+.lead{font-size:1.1rem;max-width:62ch;margin-bottom:34px}
+.btn{display:inline-block;background:var(--terra-dark);color:#fff;padding:15px 32px;border-radius:50px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem;transition:translate .2s ease-out,box-shadow .25s,background .25s}
+.btn:hover{box-shadow:0 10px 24px var(--shadow);background:#a45f43}
+.btn.alt{background:transparent;border:2px solid var(--head);color:var(--head);margin-left:10px}
+.photo{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:linear-gradient(160deg,var(--blue-light),var(--blue));border:6px solid var(--sand);display:grid;place-items:center;text-align:center;color:var(--ink);font-weight:600;padding:20px;box-shadow:0 30px 60px var(--shadow)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.card{position:relative;overflow:hidden;padding:28px;border-radius:14px;background:var(--card);border:1px solid var(--card-b);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);translate:-120% 0;transition:translate .8s ease}
+.card:hover::after{translate:120% 0}
+.card:hover{box-shadow:0 18px 40px var(--shadow)}
+.card h3{margin:10px 0 8px}
+.card a{color:var(--accent);font-weight:700}
+.card p{margin-top:6px}.card p+p{margin-top:14px}.card .thumb{margin-bottom:14px}
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+.mapbox{margin-top:24px}
+.mapbox iframe{display:block;width:100%;height:clamp(300px,45vw,420px);border:4px solid var(--sand);border-radius:14px;box-shadow:0 18px 40px var(--shadow);background:var(--card)}
+.mapbox .btn{margin-top:16px}
+footer{background:var(--charcoal);color:var(--cream);padding:44px clamp(20px,6vw,90px);font-size:.9rem;display:flex;justify-content:space-between;align-items:flex-start;gap:30px 60px;flex-wrap:wrap}
+footer b{color:var(--sand)} footer p+p{margin-top:6px;color:var(--blue-light)}
+.foot-brand{max-width:340px;text-align:left}
+.foot-brand h3{color:#fff;font-size:1.5rem;margin-bottom:10px}
+.foot-brand p{color:var(--cream);font-size:1.05rem;line-height:1.7}
+.foot-info{text-align:right}
+@media(max-width:700px){footer{flex-direction:column}.foot-info{text-align:left}}
+#top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;border:0;background:var(--terra-dark);color:#fff;font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+#top.show{opacity:1;pointer-events:auto}
+.next{padding:clamp(40px,6vw,70px) clamp(20px,6vw,90px) clamp(60px,8vw,100px);text-align:center}
+.next small{display:block;font:700 .8rem var(--sans);letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.next a{display:inline-block;text-decoration:none;font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--head);border-bottom:3px solid var(--terra);padding-bottom:6px;transition:color .3s}
+.next a span{display:inline-block;transition:translate .4s}
+.next a:hover{color:var(--accent)} .next a:hover span{translate:14px 0}
+
+/* ===== PAGE-TO-PAGE COLOUR WIPE ===== */
+html.leaving::after,html.arriving::after{content:"";position:fixed;inset:0;z-index:999;background:var(--wipe);pointer-events:none}
+html.leaving::after{animation:wipeIn .5s cubic-bezier(.7,0,.3,1) forwards}
+html.arriving::after{animation:wipeOut .7s .05s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes wipeIn{from{transform:translateY(100%)}to{transform:none}}
+@keyframes wipeOut{from{transform:none}to{transform:translateY(-100%)}}
+
+/* ===== SCROLL ANIMATIONS (script adds .in when an element scrolls into view) ===== */
+/* 1. fade-up with blur, sliding in from the side, zooming, or a shaped photo reveal */
+.js .reveal{opacity:0;translate:0 44px;scale:.96;filter:blur(6px);transition:opacity .9s ease,translate .9s cubic-bezier(.2,.8,.2,1),scale .9s cubic-bezier(.2,.8,.2,1),filter .9s ease,clip-path 1.2s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .reveal.left{translate:-80px 0} .js .reveal.right{translate:80px 0} .js .reveal.zoom{translate:none;scale:.8}
+.js .reveal.fx-photo{translate:0 60px;scale:.85;clip-path:inset(30% 20% 30% 20% round 120px)}
+.js .reveal.in{opacity:1;translate:0 0;scale:1;filter:none}
+.js .reveal.fx-photo.in{clip-path:inset(-60px round 0)}
+.reveal.done{transition-delay:0s}
+.card.done{transition:translate .3s,box-shadow .3s,transform .2s ease-out}
+.card.done:hover{translate:0 -6px}
+/* 2. headings: every word rises out of a mask, one after another */
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.c{display:inline-block;translate:0 118%;rotate:7deg;transition:translate .9s cubic-bezier(.2,.8,.2,1) calc(var(--d,0s) + var(--i)*70ms),rotate .9s ease calc(var(--d,0s) + var(--i)*70ms)}
+.split.in .c{translate:0 0;rotate:0deg}
+/* 3. marquee band: speeds up, reverses and skews with your scroll speed */
+.marquee{overflow:hidden;padding:22px 0;border-block:1px solid var(--card-b);white-space:nowrap;background:var(--card);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.marquee .track{display:inline-flex;will-change:transform}
+.marquee span{font-family:var(--serif);font-size:clamp(2.2rem,6vw,4.5rem);padding-right:.5em;color:transparent;-webkit-text-stroke:1.5px var(--head)}
+.marquee span:nth-child(even){color:var(--accent);-webkit-text-stroke:0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}
+ .reveal,.c{opacity:1;translate:none;scale:none;filter:none;clip-path:none;rotate:none}}
+@media(max-width:760px){.photo{max-width:300px;margin:auto}.btn.alt{margin:12px 0 0}}
