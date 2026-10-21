@@ -23,6 +23,7 @@ const reviews=[
  ["The service was slower than expected, and communication could have been better.", "Numaan Tursoo"],
  ["Abdallah is very professional and provided amazing  consultations", "Sonea Ayacootee"],
  ["Professional, trustworthy and provided excellent guidance throughout my case.", "Nicolas Toi"],
+ ["Extremely disappointing experience. Poor communication, missed deadlines and a lack of professionalism throughout my case.", "Daryl Manna"],
  ["Professional, reliable and supportive throughout the entire process.", "Natanaela Rasoanaivo"]];
 
 
