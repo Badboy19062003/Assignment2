@@ -21,4 +21,18 @@
 .dots{display:flex;gap:10px;margin-top:16px}
 .dots button{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);background:none;cursor:pointer}
 .dots button.on{background:var(--accent)}
-@media(max-width:800px){.hero{grid-template-columns:1fr}}
+@media(max-width:800px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .slider{
+    max-width:100%;
+  }
+  .hero img,
+  .slide img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+  }
+}
