@@ -1,21 +1,79 @@
-/* CONTACT PAGE style (own file). Solid background colour for this page (light / dark): */
-:root[data-theme="light"]{--page-bg:#DBCAB2}
-:root[data-theme="dark"]{--page-bg:#2e3234}
-/* The background picture is the <img> inside the #bg div in the HTML page. Opacity of the picture: 0 = invisible ... 1 = full strength. */
-#bg{--bg-img-opacity:.3}
-
-#contact .two{grid-template-columns:1.1fr .9fr}
-:root[data-theme="light"] #contact{--head:#3f545c}
-/* contact */
-form{background:var(--card);border:1px solid var(--card-b);padding:32px;border-radius:16px;box-shadow:0 18px 40px var(--shadow)}
-label{display:block;font-weight:600;margin:14px 0 6px}
-input,select,textarea{width:100%;padding:13px 14px;border-radius:8px;border:2px solid var(--blue-light);font:inherit;background:#fff;color:var(--ink)}
-input:focus,select:focus,textarea:focus{border-color:var(--terra-dark);outline:none}
-.err{color:var(--err);font-size:.88rem;min-height:1.2em}
-.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400}
-.chk input{width:auto;margin-top:6px}
-#ok{display:none;margin-top:16px;padding:16px;border-radius:10px;background:var(--blue);color:#fff}
-.info p{margin-bottom:8px}
-.info a{color:var(--accent);font-weight:700}
-
-@media(max-width:800px){#contact .two{grid-template-columns:1fr}}
+:root[data-theme="light"] {
+  --page-bg: #DBCAB2;
+}
+:root[data-theme="dark"] {
+  --page-bg: #2e3234;
+}
+#bg {
+  --bg-img-opacity: .3;
+}
+#contact .two {
+  grid-template-columns: 1.1fr .9fr;
+}
+:root[data-theme="light"] #contact {
+  --head: #3f545c;
+}
+form {
+  background: var(--card);
+  border: 1px solid var(--card-b);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px var(--shadow);
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin: 14px 0 6px;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 8px;
+  border: 2px solid var(--blue-light);
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--terra-dark);
+  outline: none;
+}
+.err {
+  color: var(--err);
+  font-size: .88rem;
+  min-height: 1.2em;
+}
+.chk {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 400;
+}
+.chk input {
+  width: auto;
+  margin-top: 6px;
+}
+#ok {
+  display: none;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+}
+.info p {
+  margin-bottom: 8px;
+}
+.info a {
+  color: var(--accent);
+  font-weight: 700;
+}
+@media (max-width:800px) {
+  #contact .two {
+    grid-template-columns: 1fr;
+  }
+}
