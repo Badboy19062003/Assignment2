@@ -1,30 +1,109 @@
-/* EXPERTISE PAGE style (own file). Solid background colour for this page (light / dark): */
-:root[data-theme="light"]{--page-bg:#C9D2D4}
-:root[data-theme="dark"]{--page-bg:#33434a}
-/* The background picture is the <img> inside the #bg div in the HTML page. Opacity of the picture: 0 = invisible ... 1 = full strength. */
-#bg{--bg-img-opacity:.3}
-
-/* numbered practice-area cards */
-#areas .card{border-top:4px solid var(--terra)}
-#areas .card:hover .num{color:var(--head)}
-.card .num{font-family:var(--serif);color:var(--accent);font-size:2.2rem}
-/* 9 cards = 3 neat rows of 3 */
-#areas.grid{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){#areas.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){#areas.grid{grid-template-columns:1fr}}
-
-/* open / close card */
-#areas.grid{align-items:start}
-.acc-head{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.acc-head::after{content:"";position:absolute;inset:0}              /* the whole card is clickable */
-.plus{position:relative;flex:none;width:22px;height:22px;border-radius:50%;background:var(--terra-dark);transition:rotate .4s ease}
-.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:2px;margin:-1px 0 0 -5px;background:#fff;border-radius:2px}
-.plus::after{rotate:90deg}
-.card.open .plus{rotate:45deg}
-.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
-.acc-panel>div{overflow:hidden;min-height:0}
-.card.open .acc-panel{grid-template-rows:1fr}
-.acc-panel p{margin-top:14px;padding-top:14px;border-top:1px solid var(--card-b)}
-.acc-panel ul{margin:12px 0 14px 18px}
-.acc-panel li{margin-bottom:4px}
-.acc-panel a{position:relative;z-index:2}
+:root[data-theme="light"] {
+  --page-bg: #C9D2D4;
+}
+:root[data-theme="dark"] {
+  --page-bg: #33434a;
+}
+#bg {
+  --bg-img-opacity: .3;
+}
+#areas .card {
+  border-top: 4px solid var(--terra);
+}
+#areas .card:hover .num {
+  color: var(--head);
+}
+.card .num {
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 2.2rem;
+}
+#areas.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width:900px) {
+  #areas.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:600px) {
+  #areas.grid {
+    grid-template-columns: 1fr;
+  }
+}
+#areas.grid {
+  align-items: start;
+}
+.acc-head {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.acc-head::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.plus {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--terra-dark);
+  transition: rotate .4s ease;
+}
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  margin: -1px 0 0 -5px;
+  background: #fff;
+  border-radius: 2px;
+}
+.plus::after {
+  rotate: 90deg;
+}
+.card.open .plus {
+  rotate: 45deg;
+}
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .45s ease;
+}
+.acc-panel>div {
+  overflow: hidden;
+  min-height: 0;
+}
+.card.open .acc-panel {
+  grid-template-rows: 1fr;
+}
+.acc-panel p {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--card-b);
+}
+.acc-panel ul {
+  margin: 12px 0 14px 18px;
+}
+.acc-panel li {
+  margin-bottom: 4px;
+}
+.acc-panel a {
+  position: relative;
+  z-index: 2;
+}
